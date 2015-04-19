@@ -1,0 +1,95 @@
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+html,body { 
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica", sans-serif;
+  font-size: 16px;
+  background: #FFFFFF;
+}
+
+.wrapper { 
+  @media screen and (min-width: 1100px) {
+    margin: 0 auto;
+    width: 1024px;
+  }
+}
+
+a {
+  color: #8b2209;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FF3300;
+}
+
+strong {
+  font-weight: 600;
+}
+
+ul.rm {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.grid {
+  li {
+    float: left;
+  }
+}
+
+input[type="radio"] {
+  display:none;
+  & + label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ababab;
+    line-height: 20px;
+    span {
+      position: relative;
+      display: inline-block;
+      margin: -1px 5px 0 0;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      cursor: pointer;
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #666;
+        border-radius: 100%;
+      }
+    }
+  }
+  &:checked + label span {
+    &:after {
+      content: "";
+      @include position(absolute, 4px null null 4px);
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #333;
+      border-radius: 100%;
+    }
+  }
+}

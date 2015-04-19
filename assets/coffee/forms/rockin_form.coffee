@@ -3,12 +3,23 @@ class RockinForm
   rockin_chart: null
   form: null
 
+  isChecked: (item) ->
+    return item.value if item.checked
+
+  getRadioValue: (radios) ->
+    @isChecked(item) for item in radios
+
   isDateValid: (date_string) ->
     date_string.match("\\d{4}-\\d{2}-\\d{2}") ? false
 
   validate: ->
+    console.log("Needs to validate")
 
-  onSubmit: ->
+  onSubmit: (evt) ->
+    evt.preventDefault()
+    date = document.getElementById('date')
+    value = document.getElementById('point_value')
+    type = @getRadioValue(document.getElementsByName('type_radio'))
     console.log('Do something')
 
   ############################################

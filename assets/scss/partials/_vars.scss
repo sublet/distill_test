@@ -1,0 +1,18 @@
+$red:     #a40e0e;
+
+// font-size: pxToEm(16);
+@function pxToEm($value, $context: 16) {
+ @return #{$value/$context}em
+};
+
+// @include font-condensed(16);
+@mixin font-condensed($font_size: 16) {
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", sans-serif;
+  font-size: pxToEm($font_size);
+}
+
+// @include font-normal(16);
+@mixin font-normal($font_size: 16) {
+  font-family: "Helvetica", sans-serif;
+  font-size: pxToEm($font_size);
+}

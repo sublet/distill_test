@@ -465,14 +465,37 @@ RockinForm = (function() {
 
   RockinForm.prototype.form = null;
 
+  RockinForm.prototype.isChecked = function(item) {
+    if (item.checked) {
+      return item.value;
+    }
+  };
+
+  RockinForm.prototype.getRadioValue = function(radios) {
+    var i, item, len, results;
+    results = [];
+    for (i = 0, len = radios.length; i < len; i++) {
+      item = radios[i];
+      results.push(this.isChecked(item));
+    }
+    return results;
+  };
+
   RockinForm.prototype.isDateValid = function(date_string) {
     var ref;
     return (ref = date_string.match("\\d{4}-\\d{2}-\\d{2}")) != null ? ref : false;
   };
 
-  RockinForm.prototype.validate = function() {};
+  RockinForm.prototype.validate = function() {
+    return console.log("Needs to validate");
+  };
 
-  RockinForm.prototype.onSubmit = function() {
+  RockinForm.prototype.onSubmit = function(evt) {
+    var date, type, value;
+    evt.preventDefault();
+    date = document.getElementById('date');
+    value = document.getElementById('point_value');
+    type = this.getRadioValue(document.getElementsByName('type_radio'));
     return console.log('Do something');
   };
 
