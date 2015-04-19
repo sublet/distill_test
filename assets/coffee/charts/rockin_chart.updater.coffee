@@ -24,4 +24,4 @@ class RockinChart.Updater
 
   constructor: (chart) ->
     @chart = chart
-    console.log("Updater initd")
+    console.log("[RF] Updater initd")

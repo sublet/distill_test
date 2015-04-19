@@ -4,6 +4,8 @@ class RockinChart.init
 
   view: null
 
-  constructor: (json) ->
-    @view = new RockinChart.View(json) 
+  display: ->
     @view.display()
+
+  constructor: (json) ->
+    @view = new RockinChart.View(json)

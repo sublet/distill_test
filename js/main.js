@@ -228,9 +228,12 @@ RockinChart = window.RockinChart || {};
 RockinChart.init = (function() {
   init.prototype.view = null;
 
+  init.prototype.display = function() {
+    return this.view.display();
+  };
+
   function init(json) {
     this.view = new RockinChart.View(json);
-    this.view.display();
   }
 
   return init;
@@ -251,10 +254,10 @@ RockinChart.View = (function() {
       zoomType: 'x'
     },
     title: {
-      text: 'USD to EUR exchange rate from 2006 through 2008'
+      text: 'Bot Results'
     },
     subtitle: {
-      text: "Hello"
+      text: "This is a rockin chart with rockin results"
     },
     xAxis: {
       type: 'datetime',
@@ -262,11 +265,11 @@ RockinChart.View = (function() {
     },
     yAxis: {
       title: {
-        text: 'Exchange rate'
+        text: 'Bots'
       }
     },
     legend: {
-      enabled: false
+      enabled: true
     },
     plotOptions: {
       area: {
@@ -305,7 +308,7 @@ RockinChart.View = (function() {
   View.prototype.getSeriesWithData = function(series_name, data) {
     return {
       type: 'line',
-      name: series_name,
+      name: series_name.replace(/\_/gi, ' '),
       pointInterval: this.getPointInterval,
       pointStart: this.getFirstDatePoint,
       data: data
@@ -333,12 +336,24 @@ RockinChart.View = (function() {
     return this.updater.addUpdatePoint(time, series, new_value);
   };
 
+  View.prototype.getSeriesNames = function() {
+    var i, item, len, ref, results;
+    ref = this.chart.series;
+    results = [];
+    for (i = 0, len = ref.length; i < len; i++) {
+      item = ref[i];
+      results.push(item.name);
+    }
+    return results;
+  };
+
   View.prototype.display = function() {
     return this.buildSeries();
   };
 
   function View(json_data) {
     this.data = new RockinChart.Data(json_data);
+    console.log("[RF] View initd");
   }
 
   return View;
@@ -388,7 +403,7 @@ RockinChart.Updater = (function() {
 
   function Updater(chart) {
     this.chart = chart;
-    console.log("Updater initd");
+    console.log("[RF] Updater initd");
   }
 
   return Updater;
@@ -454,6 +469,7 @@ RockinChart.Data = (function() {
   function Data(json_data) {
     this.json = json_data.categorized_domain_requests;
     this.runThroughData();
+    console.log("[RF] Data initd");
   }
 
   return Data;
@@ -465,20 +481,34 @@ RockinForm = (function() {
 
   RockinForm.prototype.form = null;
 
-  RockinForm.prototype.isChecked = function(item) {
-    if (item.checked) {
-      return item.value;
-    }
-  };
-
   RockinForm.prototype.getRadioValue = function(radios) {
-    var i, item, len, results;
-    results = [];
+    var i, item, len;
     for (i = 0, len = radios.length; i < len; i++) {
       item = radios[i];
-      results.push(this.isChecked(item));
+      if (item.checked) {
+        return item.value;
+      }
     }
-    return results;
+    return false;
+  };
+
+  RockinForm.prototype.prettifyText = function(name) {
+    return name.replace(/\_/gi, ' ');
+  };
+
+  RockinForm.prototype.getRadioButton = function(name) {
+    return '<li><input type="radio" id="type_radio_' + name + '" name="type_radio" value="' + name + '" /><label for="type_radio_' + name + '"><span></span>' + this.prettifyText(name) + '</label></li>';
+  };
+
+  RockinForm.prototype.setupRadioButtons = function() {
+    var i, item, items, len, ref;
+    items = "";
+    ref = this.rockin_chart.view.getSeriesNames();
+    for (i = 0, len = ref.length; i < len; i++) {
+      item = ref[i];
+      items += this.getRadioButton(item);
+    }
+    return document.getElementById("radio_buttons").innerHTML = items;
   };
 
   RockinForm.prototype.isDateValid = function(date_string) {
@@ -486,17 +516,21 @@ RockinForm = (function() {
     return (ref = date_string.match("\\d{4}-\\d{2}-\\d{2}")) != null ? ref : false;
   };
 
-  RockinForm.prototype.validate = function() {
-    return console.log("Needs to validate");
+  RockinForm.prototype.isValidNumber = function(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
   };
 
-  RockinForm.prototype.onSubmit = function(evt) {
+  RockinForm.prototype.onSubmit = function(e) {
     var date, type, value;
-    evt.preventDefault();
-    date = document.getElementById('date');
-    value = document.getElementById('point_value');
+    e.preventDefault();
+    date = document.getElementById('date').value;
+    value = Number(document.getElementById('point_value').value);
     type = this.getRadioValue(document.getElementsByName('type_radio'));
-    return console.log('Do something');
+    if (this.isDateValid(date) && this.isValidNumber(value) && type) {
+      return this.addPoint(date, type, Number(value));
+    } else {
+      return alert("Please validate your data is correct!");
+    }
   };
 
   RockinForm.prototype.addPoint = function(date, series, new_value) {
@@ -505,7 +539,9 @@ RockinForm = (function() {
 
   RockinForm.prototype.setup = function() {
     this.form = document.getElementById('rockin_form');
-    return this.form.addEventListener("submit", this.onSubmit);
+    this.form.addEventListener("submit", this.onSubmit.bind(this));
+    this.rockin_chart.display();
+    return this.setupRadioButtons();
   };
 
   function RockinForm(json) {

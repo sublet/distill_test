@@ -16,7 +16,7 @@
 </head>
 <body>
 <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Add your site or application content here -->
@@ -24,26 +24,26 @@
 <!--Create a form with an input that accepts an integer value, an input for a date and radio buttons to choose which series the new data point will be associated. Submitting the form will plot the integer dynamically on the time series chart for the selected series.-->
 
 <div class="main_contiainer">
-    <div id="chart_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-    <form id="rockin_form" action="">
-    		<label for="date">Date on which you wish to plot (fmt: YYYY-MM-DD)</label>
-        <input type="text" id="date" placeholder="Enter a date" value="" />
-    		<label for="date">Value you wish to plot</label>
-        <input type="text" id="point_value" placeholder="Enter a Value" value="" />
-    		<label for="">Choose a categoy</label>
-        <div class="radios">
-        	<input type="radio" id="type_radio_1" name="type_radio" value="1" /><label for="type_radio_1"><span></span>Something 1</label>
-        	<input type="radio" id="type_radio_2" name="type_radio" value="2" /><label for="type_radio_2"><span></span>Something 2</label>
-        	<input type="radio" id="type_radio_3" name="type_radio" value="3" /><label for="type_radio_3"><span></span>Something 3</label>
-        	<input type="radio" id="type_radio_4" name="type_radio" value="4" /><label for="type_radio_4"><span></span>Something 4</label>
-	      </div>
-	      <input type="submit" id="submit" name="submit" value="Submit" />
-    </form>
+  <div id="chart_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  <form id="rockin_form" action="" class="clearfix">
+    <div class="input">
+      <label for="date">Date on which you wish to plot (fmt: YYYY-MM-DD)</label>
+      <input type="text" id="date" placeholder="Enter a date..." value="" />
+    </div>
+    <div class="input">
+      <label for="date">Value you wish to plot</label>
+      <input type="text" id="point_value" placeholder="Enter a Value..." value="" />
+    </div>
+    <div class="input radios">
+      <label for="">Choose a category</label>
+      <ul id="radio_buttons"></ul>
+    </div>
+    <input type="submit" id="submit" name="submit" value="Submit" />
+  </form>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="js/main.js"></script>
 
 </body>

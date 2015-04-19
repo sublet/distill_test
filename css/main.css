@@ -144,6 +144,60 @@ input[type="radio"] {
     background: #333;
     border-radius: 100%; }
 
+body {
+  background: #f9efd6; }
+
+.main_contiainer {
+  margin: 30px auto 0;
+  max-width: 940px;
+  padding: 20px;
+  background: #FFF;
+  border-radius: 20px; }
+
+#chart_container {
+  max-width: 900px;
+  min-width: 310px;
+  height: 400px; }
+
+#rockin_form {
+  padding-top: 20px; }
+  #rockin_form div.input {
+    float: left; }
+    #rockin_form div.input label {
+      display: block;
+      font-size: 0.75em;
+      color: #999; }
+    #rockin_form div.input:nth-child(1) {
+      width: 65%; }
+    #rockin_form div.input:nth-child(2) {
+      float: right;
+      width: 30%; }
+    #rockin_form div.input:nth-child(3) {
+      width: 100%; }
+  #rockin_form .radios {
+    padding: 15px 0; }
+    #rockin_form .radios ul {
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+      #rockin_form .radios ul li {
+        float: left; }
+      #rockin_form .radios ul li {
+        margin-right: 15px;
+        text-transform: capitalize; }
+  #rockin_form input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #CCC;
+    border-radius: 4px; }
+  #rockin_form input[type="submit"] {
+    width: 100%;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", sans-serif;
+    font-size: 1.375em;
+    background: #a40e0e;
+    color: #FFF;
+    text-transform: uppercase; }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

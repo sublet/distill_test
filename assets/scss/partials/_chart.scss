@@ -1,0 +1,65 @@
+body {
+  background: #f9efd6;
+}
+
+.main_contiainer {
+  margin: 30px auto 0;
+  max-width: 940px; 
+  padding: 20px;
+  background: #FFF;
+  border-radius: 20px;
+}
+
+#chart_container {
+  max-width: 900px; 
+  min-width: 310px; 
+  height: 400px; 
+}
+
+#rockin_form {
+  padding-top: 20px;
+  div.input {
+    float: left;
+    label {
+      display: block;
+      font-size: pxToEm(12);
+      color: #999;
+    }
+    &:nth-child(1) {
+      width: 65%;
+    }
+    &:nth-child(2) {
+      float: right;
+      width: 30%;
+    }
+    &:nth-child(3) {
+      width: 100%;
+    }
+  }
+
+  .radios {
+    padding: 15px 0;
+    ul {
+      @include kill-list;
+      li {
+        margin-right: 15px;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    @include font-condensed(22);
+    background: $red;
+    color: #FFF;
+    text-transform: uppercase;
+  }
+}

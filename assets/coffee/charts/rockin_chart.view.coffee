@@ -11,10 +11,10 @@ class RockinChart.View
       zoomType: 'x'
     },
     title: {
-      text: 'USD to EUR exchange rate from 2006 through 2008'
+      text: 'Bot Results'
     },
     subtitle: {
-      text: "Hello"
+      text: "This is a rockin chart with rockin results"
     },
     xAxis: {
       type: 'datetime',
@@ -22,11 +22,11 @@ class RockinChart.View
     },
     yAxis: {
       title: {
-        text: 'Exchange rate'
+        text: 'Bots'
       }
     },
     legend: {
-      enabled: false
+      enabled: true
     },
     plotOptions: {
       area: {
@@ -63,7 +63,7 @@ class RockinChart.View
   getSeriesWithData: (series_name, data) ->
     {
       type: 'line',
-      name: series_name,
+      name: series_name.replace(/\_/gi, ' '),
       pointInterval: @getPointInterval,
       pointStart: @getFirstDatePoint,
       data: data
@@ -88,8 +88,12 @@ class RockinChart.View
   addUpdatePoint: (time, series, new_value) ->
     @updater.addUpdatePoint(time, series, new_value)
 
+  getSeriesNames: ->
+    item.name for item in @chart.series
+
   display: ->
     @buildSeries()
     
   constructor: (json_data) ->
     @data = new RockinChart.Data(json_data)
+    console.log("[RF] View initd")

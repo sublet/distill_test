@@ -30,3 +30,4 @@ class RockinChart.Data
   constructor: (json_data) ->
     @json = json_data.categorized_domain_requests
     @runThroughData()
+    console.log("[RF] Data initd")

@@ -16,3 +16,13 @@ $red:     #a40e0e;
   font-family: "Helvetica", sans-serif;
   font-size: pxToEm($font_size);
 }
+
+// @include kill-list;
+@mixin kill-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    float: left;
+  }
+}
