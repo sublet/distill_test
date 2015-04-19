@@ -1,36 +1,47 @@
-body {
-  background: #f9efd6;
-}
-
 .main_contiainer {
-  margin: 30px auto 0;
-  max-width: 940px; 
-  padding: 20px;
+  max-width: 100%; 
+  padding: 10px;
   background: #FFF;
-  border-radius: 20px;
+  @media screen and (min-width: 1000px) {
+    margin: 30px auto 0;
+    max-width: 940px; 
+    padding: 20px;
+    border-radius: 20px;
+  }
 }
 
 #chart_container {
   max-width: 900px; 
   min-width: 310px; 
-  height: 400px; 
+  height: 250px; 
+  @media screen and (min-width: 1000px) {
+    height: 400px; 
+  }
 }
 
 #rockin_form {
   padding-top: 20px;
   div.input {
-    float: left;
-    label {
+    @media screen and (min-width: 1000px) {
+      float: left;
+    }
+    & > label {
       display: block;
       font-size: pxToEm(12);
       color: #999;
     }
     &:nth-child(1) {
-      width: 65%;
+      margin-bottom: 10px;
+      @media screen and (min-width: 1000px) {
+        margin-bottom: 0;
+        width: 65%;
+      }
     }
     &:nth-child(2) {
-      float: right;
-      width: 30%;
+      @media screen and (min-width: 1000px) {
+        float: right;
+        width: 30%;
+      }
     }
     &:nth-child(3) {
       width: 100%;
@@ -61,6 +72,10 @@ body {
     background: $red;
     color: #FFF;
     text-transform: uppercase;
+    margin-top: 10px;
+    @media screen and (min-width: 1000px) {
+      margin-bottom: 0;
+    }
   }
 }
 

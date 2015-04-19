@@ -86,7 +86,10 @@ body {
   padding: 0;
   font-family: "Helvetica", sans-serif;
   font-size: 16px;
-  background: #FFFFFF; }
+  background: #fff; }
+  @media screen and (min-width: 940px) {
+    body {
+      background: #f9efd6; } }
 
 @media screen and (min-width: 1100px) {
   .wrapper {
@@ -114,66 +117,92 @@ ul.grid li {
 input[type="radio"] {
   display: none; }
   input[type="radio"] + label {
-    font-size: 18px;
+    font-size: pixToEm(26);
     font-weight: 600;
     color: #ababab;
-    line-height: 20px; }
+    line-height: 42px; }
+    @media screen and (min-width: 1000px) {
+      input[type="radio"] + label {
+        font-size: pixToEm(18);
+        line-height: 20px; } }
     input[type="radio"] + label span {
       position: relative;
       display: inline-block;
       margin: -1px 5px 0 0;
-      width: 16px;
-      height: 16px;
+      width: 30px;
+      height: 30px;
       vertical-align: middle;
       cursor: pointer; }
+      @media screen and (min-width: 1000px) {
+        input[type="radio"] + label span {
+          width: 16px;
+          height: 16px; } }
       input[type="radio"] + label span:before {
         content: "";
         display: inline-block;
-        width: 16px;
-        height: 16px;
+        width: 30px;
+        height: 30px;
         border: 1px solid #666;
         border-radius: 100%; }
+        @media screen and (min-width: 1000px) {
+          input[type="radio"] + label span:before {
+            width: 16px;
+            height: 16px; } }
   input[type="radio"]:checked + label span:after {
     content: "";
     position: absolute;
     top: 4px;
     left: 4px;
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 24px;
+    height: 24px;
     background: #333;
     border-radius: 100%; }
-
-body {
-  background: #f9efd6; }
+    @media screen and (min-width: 1000px) {
+      input[type="radio"]:checked + label span:after {
+        width: 10px;
+        height: 10px; } }
 
 .main_contiainer {
-  margin: 30px auto 0;
-  max-width: 940px;
-  padding: 20px;
-  background: #FFF;
-  border-radius: 20px; }
+  max-width: 100%;
+  padding: 10px;
+  background: #FFF; }
+  @media screen and (min-width: 1000px) {
+    .main_contiainer {
+      margin: 30px auto 0;
+      max-width: 940px;
+      padding: 20px;
+      border-radius: 20px; } }
 
 #chart_container {
   max-width: 900px;
   min-width: 310px;
-  height: 400px; }
+  height: 250px; }
+  @media screen and (min-width: 1000px) {
+    #chart_container {
+      height: 400px; } }
 
 #rockin_form {
   padding-top: 20px; }
-  #rockin_form div.input {
-    float: left; }
-    #rockin_form div.input label {
-      display: block;
-      font-size: 0.75em;
-      color: #999; }
-    #rockin_form div.input:nth-child(1) {
-      width: 65%; }
+  @media screen and (min-width: 1000px) {
+    #rockin_form div.input {
+      float: left; } }
+  #rockin_form div.input > label {
+    display: block;
+    font-size: 0.75em;
+    color: #999; }
+  #rockin_form div.input:nth-child(1) {
+    margin-bottom: 10px; }
+    @media screen and (min-width: 1000px) {
+      #rockin_form div.input:nth-child(1) {
+        margin-bottom: 0;
+        width: 65%; } }
+  @media screen and (min-width: 1000px) {
     #rockin_form div.input:nth-child(2) {
       float: right;
-      width: 30%; }
-    #rockin_form div.input:nth-child(3) {
-      width: 100%; }
+      width: 30%; } }
+  #rockin_form div.input:nth-child(3) {
+    width: 100%; }
   #rockin_form .radios {
     padding: 15px 0; }
     #rockin_form .radios ul {
@@ -196,7 +225,11 @@ body {
     font-size: 1.375em;
     background: #a40e0e;
     color: #FFF;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    margin-top: 10px; }
+    @media screen and (min-width: 1000px) {
+      #rockin_form input[type="submit"] {
+        margin-bottom: 0; } }
 
 .highcharts-legend-item {
   text-transform: capitalize; }

@@ -21,7 +21,10 @@ body {
   padding: 0;
   font-family: "Helvetica", sans-serif;
   font-size: 16px;
-  background: #FFFFFF;
+  background: #fff;
+  @media screen and (min-width: 940px) {
+    background: #f9efd6;
+  }
 }
 
 .wrapper { 
@@ -59,25 +62,37 @@ ul.grid {
 input[type="radio"] {
   display:none;
   & + label {
-    font-size: 18px;
+    font-size: pixToEm(26);
     font-weight: 600;
     color: #ababab;
-    line-height: 20px;
+    line-height: 42px;
+    @media screen and (min-width: 1000px) {
+      font-size: pixToEm(18);
+      line-height: 20px;
+    }
     span {
       position: relative;
       display: inline-block;
       margin: -1px 5px 0 0;
-      width: 16px;
-      height: 16px;
+      width: 30px;
+      height: 30px;
       vertical-align: middle;
       cursor: pointer;
+      @media screen and (min-width: 1000px) {
+        width: 16px;
+        height: 16px;
+      }
       &:before {
         content: "";
         display: inline-block;
-        width: 16px;
-        height: 16px;
+        width: 30px;
+        height: 30px;
         border: 1px solid #666;
         border-radius: 100%;
+        @media screen and (min-width: 1000px) {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
   }
@@ -86,10 +101,14 @@ input[type="radio"] {
       content: "";
       @include position(absolute, 4px null null 4px);
       display: inline-block;
-      width: 10px;
-      height: 10px;
+      width: 24px;
+      height: 24px;
       background: #333;
       border-radius: 100%;
+      @media screen and (min-width: 1000px) {
+        width: 10px;
+        height: 10px;
+      }
     }
   }
 }
