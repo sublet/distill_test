@@ -4,7 +4,7 @@ URL: http://dev4.designmenace.com/
 
 ##Notes
 ---
-This was a fun excercise.  All in all in took me about 5 hours complete.  I could have done it around 3, but I thought this was a good time to learn how to use Coffeescript.  Up to this point I have really only played around with it, but never really used it for a project.  Also, I ended up needing to do a little research into how highcharts worked, and I made the entire thing responsive.
+This was a fun excercise.  All in all in took me about 4 - 5 hours complete.  I could have done it around 2 - 3, but I thought this was a good time to learn how to use Coffeescript.  Up to this point I have really only played around with it, but never really used it for a project.  Also, I ended up needing to do a little research into how highcharts worked, and I made the entire thing responsive.
 
 I figure I had a little time this weekend free, so what the heck :)
 
