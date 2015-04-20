@@ -17,7 +17,7 @@ class RockinChart.Data
   compileDataPointIntoSeries: (item) ->
     time = @getDateFromObject(item)
     for k, v of item # 2nd loop
-      @setPoint(@getDateFromObject(item), k, v) if k != "summary_date"
+      @setPoint(@getDateFromObject(item), k, v) if k != "summary_date" && k != "overall_total"
 
   sortData: ->
     @json.sort (a, b) ->

@@ -62,18 +62,17 @@ ul.grid {
 input[type="radio"] {
   display:none;
   & + label {
-    font-size: pixToEm(26);
-    font-weight: 600;
+    font-size: pxToEm(22);
     color: #ababab;
     line-height: 42px;
     @media screen and (min-width: 1000px) {
-      font-size: pixToEm(18);
+      font-size: pxToEm(16);
       line-height: 20px;
     }
     span {
       position: relative;
       display: inline-block;
-      margin: -1px 5px 0 0;
+      margin: -1px 10px 0 0;
       width: 30px;
       height: 30px;
       vertical-align: middle;

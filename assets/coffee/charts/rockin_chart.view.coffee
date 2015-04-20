@@ -63,7 +63,7 @@ class RockinChart.View
   getSeriesWithData: (series_name, data) ->
     {
       type: 'line',
-      name: series_name.replace(/\_/gi, ' '),
+      name: series_name.replace(/\_/gi, ' ').replace(/total/, 'requests'),
       pointInterval: @getPointInterval,
       pointStart: @getFirstDatePoint,
       data: data

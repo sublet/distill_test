@@ -308,7 +308,7 @@ RockinChart.View = (function() {
   View.prototype.getSeriesWithData = function(series_name, data) {
     return {
       type: 'line',
-      name: series_name.replace(/\_/gi, ' '),
+      name: series_name.replace(/\_/gi, ' ').replace(/total/, 'requests'),
       pointInterval: this.getPointInterval,
       pointStart: this.getFirstDatePoint,
       data: data
@@ -439,7 +439,7 @@ RockinChart.Data = (function() {
     results = [];
     for (k in item) {
       v = item[k];
-      if (k !== "summary_date") {
+      if (k !== "summary_date" && k !== "overall_total") {
         results.push(this.setPoint(this.getDateFromObject(item), k, v));
       } else {
         results.push(void 0);
